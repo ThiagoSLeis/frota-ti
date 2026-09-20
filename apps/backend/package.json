@@ -1,0 +1,26 @@
+{
+  "name": "@frota/backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "API REST (Express) que usa uma planilha do Google Sheets como banco de dados",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "test": "node --test",
+    "sheets:init": "node scripts/init-sheet.js"
+  },
+  "dependencies": {
+    "@frota/shared": "*",
+    "compression": "^1.7.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "google-auth-library": "^9.15.0",
+    "google-spreadsheet": "^4.1.4",
+    "helmet": "^8.0.0",
+    "morgan": "^1.10.0",
+    "swagger-ui-express": "^5.0.1"
+  }
+}

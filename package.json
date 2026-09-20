@@ -1,0 +1,35 @@
+{
+  "name": "gestao-frota-ti",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sistema de Gestao de Frota de TI - monorepo (React + Vite + Tailwind / Node + Express / Google Sheets)",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c blue,magenta \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "dev:backend": "npm run dev --workspace @frota/backend",
+    "dev:frontend": "npm run dev --workspace @frota/frontend",
+    "start": "npm run start --workspace @frota/backend",
+    "build": "npm run build --workspace @frota/frontend",
+    "preview": "npm run preview --workspace @frota/frontend",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "sheets:init": "npm run sheets:init --workspace @frota/backend"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.14.0"
+  }
+}
