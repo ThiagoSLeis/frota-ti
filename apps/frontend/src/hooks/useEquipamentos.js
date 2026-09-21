@@ -100,14 +100,13 @@ export function useEquipamentos() {
       setEquipamentos((lista) => lista.filter((item) => item.id !== id));
       return removido;
     } catch (error) {
-      if (error?.status === 404) {
-        setEquipamentos((lista) => lista.filter((item) => item.id !== id));
-      }
+      // 404 pode ser item ja removido ou falha de roteamento: a planilha decide.
+      if (error?.status === 404) recarregar();
       throw error;
     } finally {
       if (montadoRef.current) setRemovendoId(null);
     }
-  }, []);
+  }, [recarregar]);
 
   const resumo = useMemo(() => calcularResumo(equipamentos), [equipamentos]);
 
